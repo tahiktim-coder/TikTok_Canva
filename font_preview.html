@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fantasy Font Preview - REAL Fonts</title>
+  
+  <!-- Load actual Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Almendra+Display&family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600&family=Grenze+Gotisch:wght@400;500;600&family=IM+Fell+English+SC&family=MedievalSharp&family=Metamorphous&family=Pirata+One&family=Spectral:wght@400;500;600&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      background: #1a1a2e;
+      color: #e8dcc4;
+      padding: 40px;
+      min-height: 100vh;
+    }
+    
+    h1 {
+      font-family: 'Cinzel Decorative', serif;
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #d4a857;
+    }
+    
+    .subtitle {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      color: #888;
+      margin-bottom: 40px;
+      font-size: 0.9rem;
+    }
+    
+    .font-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 30px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .font-card {
+      background: linear-gradient(180deg, #0d0d1a 0%, #151528 100%);
+      border: 1px solid #333;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    
+    .font-header {
+      background: #0a0a15;
+      padding: 15px 20px;
+      border-bottom: 1px solid #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .font-name {
+      font-family: Arial, sans-serif;
+      font-size: 0.9rem;
+      color: #d4a857;
+      font-weight: bold;
+    }
+    
+    .font-vibe {
+      font-family: Arial, sans-serif;
+      font-size: 0.75rem;
+      color: #666;
+    }
+    
+    .font-preview {
+      padding: 40px 30px;
+      min-height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    
+    .preview-text {
+      font-size: 1.8rem;
+      line-height: 1.5;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    }
+    
+    /* Individual font families */
+    .cinzel-decorative { font-family: 'Cinzel Decorative', serif; }
+    .cinzel { font-family: 'Cinzel', serif; }
+    .uncial-antiqua { font-family: 'Uncial Antiqua', serif; }
+    .medieval-sharp { font-family: 'MedievalSharp', cursive; }
+    .almendra { font-family: 'Almendra Display', serif; }
+    .pirata-one { font-family: 'Pirata One', cursive; }
+    .im-fell { font-family: 'IM Fell English SC', serif; }
+    .grenze { font-family: 'Grenze Gotisch', cursive; }
+    .metamorphous { font-family: 'Metamorphous', cursive; }
+    .cormorant { font-family: 'Cormorant Garamond', serif; }
+    .spectral { font-family: 'Spectral', serif; }
+    
+    /* Tier labels */
+    .tier-label {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      color: #d4a857;
+      margin: 40px 0 20px 0;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+    
+    .tier-label:first-of-type {
+      margin-top: 0;
+    }
+    
+    /* Color variations */
+    .gold-theme .preview-text { color: #e8dcc4; }
+    .silver-theme { background: linear-gradient(180deg, #0a1520 0%, #152030 100%); }
+    .silver-theme .preview-text { color: #c8d4e0; }
+    .ember-theme { background: linear-gradient(180deg, #0a0505 0%, #150808 100%); }
+    .ember-theme .preview-text { color: #f0e6d8; text-shadow: 0 0 10px rgba(139, 37, 0, 0.3); }
+    .forest-theme { background: linear-gradient(180deg, #080d08 0%, #101810 100%); }
+    .forest-theme .preview-text { color: #d8e8d0; }
+  </style>
+</head>
+<body>
+  <h1>✦ Real Fantasy Fonts ✦</h1>
+  <p class="subtitle">These are the ACTUAL Google Fonts that will be used in the app</p>
+  
+  <p class="tier-label">─── Tier 1: Pure D&D Energy ───</p>
+  
+  <div class="font-grid">
+    <div class="font-card gold-theme">
+      <div class="font-header">
+        <span class="font-name">Cinzel Decorative</span>
+        <span class="font-vibe">Regal • Epic • Dragon-slayer</span>
+      </div>
+      <div class="font-preview">
+        <p class="preview-text cinzel-decorative">In Vedrant Reach, some mountains reach far beyond the clouds</p>
+      </div>
+    </div>
+    
+    <div class="font-card silver-theme">
+      <div class="font-header">
+        <span class="font-name">Uncial Antiqua</span>
+        <span class="font-vibe">Celtic • Manuscripts • Book of Kells</span>
+      </div>
+      <div class="font-preview">
+        <p class="preview-text uncial-antiqua">In Vedrant Reach, some mountains reach far beyond the clouds</p>
+      </div>
+    </div>
+    
+    <div class="font-card gold-theme">
+      <div class="font-header">
+        <span class="font-name">MedievalSharp</span>
+        <span class="font-vibe">Classic RPG • Tavern Signs</span>
+      </div>
+      <div class="font-preview">
+        <p class="preview-text medieval-sharp">In Vedrant Reach, some mountains reach far beyond the clouds</p>
+      </div>
+    </div>
+    
+    <div class="font-card forest-theme">
+      <div class="font-header">
+        <span class="font-name">Almendra Display</span>
+        <span class="font-vibe">Elvish • Flowing • Magical</span>
+      </div>
+      <div class="font-preview">
+        <p class="preview-text almendra">In Vedrant Reach, some mountains reach far beyond the clouds</p>
+      </div>
+    </div>
+  </div>
+  
+  <p class="tier-label">─── Tier 2: Adventure & Mystery ───</p>
+  
+  <div class="font-grid">
+    <div class="font-card gold-theme">
+      <div class="font-header">
+        <span class="font-name">Pirata One</span>
+        <span class="font-vibe">Bold Adventurer • Treasure Maps</span>
+      </div>
+      <div class="font-preview">
+        <p class="preview-text pirata-one">In Vedrant Reach, some mountains reach far beyond the clouds</p>
+      </div>
+    </div>
+    
+    <div class="font-card gold-theme">
+      <div class="font-header">
+        <span class="font-name">IM Fell English SC</span>
+        <span class="font-vibe">Ancient Tomes • Aged Paper</span>
+      </div>
+      <div class="font-preview">
+        <p class="preview-text im-fell">In Vedrant Reach, some mountains reach far beyond the clouds</p>
+      </div>
+    </div>
+    
+    <div class="font-card ember-theme">
+      <div class="font-header">
+        <span class="font-name">Grenze Gotisch</span>
+        <span class="font-vibe">Dark Fantasy • Gothic</span>
+      </div>
+      <div class="font-preview">
+        <p class="preview-text grenze">In Vedrant Reach, some mountains reach far beyond the clouds</p>
+      </div>
+    </div>
+    
+    <div class="font-card silver-theme">
+      <div class="font-header">
+        <span class="font-name">Metamorphous</span>
+        <span class="font-vibe">Shapeshifter • Mystical</span>
+      </div>
+      <div class="font-preview">
+        <p class="preview-text metamorphous">In Vedrant Reach, some mountains reach far beyond the clouds</p>
+      </div>
+    </div>
+  </div>
+  
+  <p class="tier-label">─── Tier 3: Subtle Fantasy ───</p>
+  
+  <div class="font-grid">
+    <div class="font-card gold-theme">
+      <div class="font-header">
+        <span class="font-name">Cinzel (Regular)</span>
+        <span class="font-vibe">Clean Medieval • Very Readable</span>
+      </div>
+      <div class="font-preview">
+        <p class="preview-text cinzel">In Vedrant Reach, some mountains reach far beyond the clouds</p>
+      </div>
+    </div>
+    
+    <div class="font-card gold-theme">
+      <div class="font-header">
+        <span class="font-name">Cormorant Garamond</span>
+        <span class="font-vibe">Scholarly Wizard • Refined</span>
+      </div>
+      <div class="font-preview">
+        <p class="preview-text cormorant">In Vedrant Reach, some mountains reach far beyond the clouds</p>
+      </div>
+    </div>
+    
+    <div class="font-card silver-theme">
+      <div class="font-header">
+        <span class="font-name">Spectral</span>
+        <span class="font-vibe">Ghostly • Elegant</span>
+      </div>
+      <div class="font-preview">
+        <p class="preview-text spectral">In Vedrant Reach, some mountains reach far beyond the clouds</p>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>

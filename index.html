@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#d4a857">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="Add D&D-style fantasy text overlays to images for TikTok">
+
+    <title>Fantasy Text Overlay</title>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+    <!-- Google Fonts (will be cached by service worker) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Almendra+Display&family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600&family=Grenze+Gotisch:wght@400;600&family=IM+Fell+English+SC&family=MedievalSharp&family=Pirata+One&family=Uncial+Antiqua&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="app-container">
+
+        <!-- Header -->
+        <header class="app-header">
+            <h1>✦ Fantasy Text Overlay ✦</h1>
+            <p>Add D&D-style text to your images • TikTok ready (2:3 ratio)</p>
+        </header>
+
+        <!-- Left Panel: Controls -->
+        <div class="panel controls-panel">
+            <h2 class="panel-title">⚔ Create Your Image</h2>
+
+            <!-- Image Upload -->
+            <div class="drop-zone" id="dropZone">
+                <div class="drop-zone-icon">🖼️</div>
+                <p class="drop-zone-text">Drag & drop image here<br>or <span>tap to browse</span></p>
+            </div>
+            <input type="file" id="fileInput" accept="image/*">
+
+            <!-- Text Input -->
+            <div class="control-group">
+                <label for="textInput">Your Epic Text</label>
+                <textarea id="textInput"
+                    placeholder="In Vedrant Reach, some mountains reach far beyond the clouds, sometimes somewhere where no one has ever been..."></textarea>
+            </div>
+
+            <!-- Font Selector -->
+            <div class="control-group">
+                <label for="fontSelect">Choose Font</label>
+                <select id="fontSelect">
+                    <!-- Populated by JS -->
+                </select>
+            </div>
+
+            <!-- Download Button -->
+            <button class="btn btn-primary" id="downloadBtn" disabled>
+                <span>⬇</span> Download Image
+            </button>
+
+            <!-- Install prompt (hidden by default) -->
+            <button class="btn btn-secondary" id="installBtn" style="display: none; margin-top: 15px;">
+                <span>📱</span> Install App
+            </button>
+        </div>
+
+        <!-- Right Panel: Preview -->
+        <div class="panel preview-panel">
+            <h2 class="panel-title">👁 Live Preview</h2>
+
+            <div class="preview-container">
+                <div class="preview-canvas-wrapper">
+                    <canvas id="previewCanvas" width="540" height="810"></canvas>
+                </div>
+                <p class="preview-info">Output: 1080 × 1620 px (2:3 ratio)</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+    <script>
+        // Register Service Worker for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service-worker.js')
+                    .then((registration) => {
+                        console.log('SW registered:', registration.scope);
+                    })
+                    .catch((error) => {
+                        console.log('SW registration failed:', error);
+                    });
+            });
+        }
+
+        // PWA Install prompt
+        let deferredPrompt;
+        const installBtn = document.getElementById('installBtn');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installBtn.style.display = 'flex';
+        });
+
+        installBtn.addEventListener('click', async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                console.log('Install outcome:', outcome);
+                deferredPrompt = null;
+                installBtn.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>
