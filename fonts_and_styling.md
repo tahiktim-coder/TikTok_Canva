@@ -1,4 +1,4 @@
-# Fantasy Text Styling Guide 🎲
+# Fantasy Text Styling Guide �
 
 > Reference for D&D-style text overlays that keep the epic fantasy vibe
 
@@ -182,7 +182,7 @@ In Vedrant Reach,
 
 ---
 
-## 💾 Implementation Priority
+## � Implementation Priority
 
 1. ✅ Fixed 20% banner height
 2. ✅ Auto-scaling text (fits any length)

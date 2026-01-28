@@ -15,12 +15,15 @@
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="icons/icon-192.png">
 
-    <!-- Google Fonts (will be cached by service worker) -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Almendra+Display&family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600&family=Grenze+Gotisch:wght@400;600&family=IM+Fell+English+SC&family=MedievalSharp&family=Pirata+One&family=Uncial+Antiqua&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Almendra+Display&family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600&family=Grenze+Gotisch:wght@400;600&family=IM+Fell+English+SC&family=MedievalSharp&family=Metamorphous&family=Pirata+One&family=Rye&family=Special+Elite&family=Uncial+Antiqua&display=swap"
         rel="stylesheet">
+
+    <!-- JSZip for Batch Download -->
+    <script src="libs/jszip.min.js"></script>
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
@@ -42,9 +45,23 @@
             <!-- Image Upload -->
             <div class="drop-zone" id="dropZone">
                 <div class="drop-zone-icon">🖼️</div>
-                <p class="drop-zone-text">Drag & drop image here<br>or <span>tap to browse</span></p>
+                <p class="drop-zone-text">Drag & drop images here<br>or <span>tap to browse</span></p>
             </div>
-            <input type="file" id="fileInput" accept="image/*">
+            <input type="file" id="fileInput" accept="image/*" multiple>
+
+            <!-- Image Queue (Batch) -->
+            <div id="imageQueue" class="image-queue" style="display: none;">
+                <h3 class="queue-title">Batch Queue (<span id="queueCount">0</span>)</h3>
+                <div class="queue-list" id="queueList"></div>
+            </div>
+
+            <!-- Theme Selection -->
+            <div class="control-group">
+                <label for="themeSelect">Choose Theme</label>
+                <select id="themeSelect">
+                    <!-- Populated by JS -->
+                </select>
+            </div>
 
             <!-- Text Input -->
             <div class="control-group">
@@ -61,10 +78,16 @@
                 </select>
             </div>
 
-            <!-- Download Button -->
-            <button class="btn btn-primary" id="downloadBtn" disabled>
-                <span>⬇</span> Download Image
-            </button>
+            <!-- Action Buttons -->
+            <div class="button-group">
+                <button class="btn btn-primary" id="downloadBtn" disabled>
+                    <span>⬇</span> Download Current
+                </button>
+
+                <button class="btn btn-accent" id="downloadAllBtn" style="display: none;">
+                    <span>📦</span> Download Batch ZIP
+                </button>
+            </div>
 
             <!-- Install prompt (hidden by default) -->
             <button class="btn btn-secondary" id="installBtn" style="display: none; margin-top: 15px;">

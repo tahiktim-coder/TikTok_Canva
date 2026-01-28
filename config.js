@@ -3,56 +3,103 @@
 // ========================================
 
 const CONFIG = {
-  // Output dimensions
+  // Output Image Settings (TikTok Ratio)
   output: {
     width: 1080,
-    height: 1620,  // 2:3 ratio
+    height: 1620, // 2:3 Aspect Ratio
     format: 'image/png',
     quality: 1.0
   },
 
-  // Banner settings (text area at top)
+  // Banner Settings
   banner: {
-    heightPercent: 20,  // Fixed 20% of total height
-    backgroundColor: '#0d0d1a',
+    heightPercent: 20, // Top 20% of image
+    backgroundColor: '#0a0a15', // Default Dark Blue
     gradientOverlay: true,
     padding: {
-      top: 30,
-      bottom: 30,
-      left: 40,
-      right: 40
+      top: 60,
+      bottom: 40,
+      left: 80,  // INCREASED for TikTok Side Buttons
+      right: 80  // INCREASED for TikTok Side Buttons
     }
   },
 
-  // Typography
+  // Text Settings
+  text: {
+    color: '#d4a857', // Default Gold
+    maxFontSize: 80,
+    minFontSize: 30,
+    lineHeight: 1.2,
+    align: 'center', // left, center, right
+    fontFamily: 'Cinzel'
+  },
+
+  // Theme Presets
+  themes: {
+    "Classic": {
+      label: "Classic Fantasy",
+      banner: "#0a0a15",
+      text: "#d4a857",
+      font: "Cinzel",
+      border: true
+    },
+    "Noir": {
+      label: "Noir Detective",
+      banner: "#1a1a1a",
+      text: "#f0f0f0",
+      font: "Special Elite",
+      border: false
+    },
+    "Parchment": {
+      label: "Old Parchment",
+      banner: "#f0e6d2",
+      text: "#3e2723",
+      font: "Cinzel Decorative",
+      border: true
+    },
+    "Royal": {
+      label: "Royal Court",
+      banner: "#2d0a31", // Deep Purple
+      text: "#ffd700", // Gold
+      font: "MedievalSharp",
+      border: true
+    },
+    "Forest": {
+      label: "Elven Forest",
+      banner: "#1a2f1a", // Dark Green
+      text: "#e0f2f1", // Pale Green/White
+      font: "Uncial Antiqua",
+      border: true
+    },
+    "Crimson": {
+      label: "Blood Pact",
+      banner: "#3a0a0a", // Dark Red
+      text: "#ffb3b3", // Pale Red
+      font: "Rye",
+      border: true
+    }
+  },
+
+  // Font Options
   fonts: {
     default: 'Cinzel',
     available: [
-      { name: 'Cinzel', label: 'Cinzel - Regal & Epic', family: "'Cinzel', serif" },
-      { name: 'Cinzel Decorative', label: 'Cinzel Decorative - Ornate', family: "'Cinzel Decorative', serif" },
-      { name: 'Uncial Antiqua', label: 'Uncial Antiqua - Celtic', family: "'Uncial Antiqua', serif" },
-      { name: 'MedievalSharp', label: 'MedievalSharp - Classic RPG', family: "'MedievalSharp', cursive" },
-      { name: 'Almendra Display', label: 'Almendra - Elvish', family: "'Almendra Display', serif" },
-      { name: 'Grenze Gotisch', label: 'Grenze Gotisch - Dark Gothic', family: "'Grenze Gotisch', cursive" },
-      { name: 'IM Fell English SC', label: 'IM Fell - Ancient Tome', family: "'IM Fell English SC', serif" },
-      { name: 'Pirata One', label: 'Pirata One - Adventure', family: "'Pirata One', cursive" }
+      { name: 'Cinzel', label: 'Cinzel (Classic)', family: "'Cinzel', serif" },
+      { name: 'Cinzel Decorative', label: 'Cinzel Decorative', family: "'Cinzel Decorative', serif" },
+      { name: 'MedievalSharp', label: 'Medieval Sharp', family: "'MedievalSharp', cursive" },
+      { name: 'Uncial Antiqua', label: 'Uncial Antiqua', family: "'Uncial Antiqua', cursive" },
+      { name: 'Almendra Display', label: 'Almendra', family: "'Almendra Display', cursive" },
+      { name: 'Special Elite', label: 'Noir Typewriter', family: "'Special Elite', cursive" },
+      { name: 'Rye', label: 'Western/Grim', family: "'Rye', cursive" },
+      { name: 'Metamorphous', label: 'Metamorphous', family: "'Metamorphous', cursive" },
+      { name: 'Pirata One', label: 'Pirate', family: "'Pirata One', cursive" }
     ]
   },
 
-  // Text styling
-  text: {
-    color: '#e8dcc4',
-    maxFontSize: 52,
-    minFontSize: 24,
-    lineHeight: 1.4,
-    shadow: '2px 2px 8px rgba(0, 0, 0, 0.9)',
-    align: 'center'
-  },
-
-  // Decorative elements
+  // Decoration Settings
   decorations: {
     border: true,
-    borderColor: 'rgba(212, 168, 87, 0.4)',
+    borderColor: '#d4a857',
     borderWidth: 2,
     cornerSize: 20
   }
