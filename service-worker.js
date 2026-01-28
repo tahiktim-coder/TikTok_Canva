@@ -2,7 +2,7 @@
 // SERVICE WORKER - Offline Caching
 // ========================================
 
-const CACHE_NAME = 'fantasy-text-v1';
+const CACHE_NAME = 'fantasy-text-v2';
 const ASSETS_TO_CACHE = [
     './',
     './index.html',
